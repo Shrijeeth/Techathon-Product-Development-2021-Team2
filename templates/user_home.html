@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="icon" href="../static/images/dashboard.png" type="image/icon type">
+
+    <link rel="stylesheet" href="../static/css/signup.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a class="navbar-brand me-2" href="https://mdbgo.com/">
+                <img src="../static/images/rec_logo.jpg" height="35" alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
+            </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" aria-disabled="true">Home</a>
+                    </li>
+                    &nbsp; &nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Administrative Dashboard</a>
+                    </li>
+
+                </ul>
+                <!-- Left links -->
+
+                <div class="d-flex align-items-center">
+                    <a href="/update_profile"> <button type="button" class="btn btn-link px-3 me-2">Update Profile
+          </button></a>
+                    <a href="/logout"> <button type="button" class="btn btn-primary me-3">
+            Logout
+          </button></a>
+                    <a class="btn btn-dark px-3" href="https://github.com/mdbootstrap/mdb-ui-kit" role="button"><i class="fab fa-github"></i
+          ></a>
+                </div>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+    <!--Title-->
+    <div id="outertitle">
+        <div id="title">
+            <h1 id="heading3">Student Dashboard!!</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" style="margin-top:2%;">
+            <div class="card-group">
+                {% for event in events %}
+                <div class="card text-center bg-dark text-light" style="margin-left: 2%;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event['title'] }}</h5>
+                        <p class="card-text">
+                            {{ event['summary'] }}
+                        </p>
+                        <a href="/event" class="btn btn-primary">Go</a>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
